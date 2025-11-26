@@ -27,12 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - TechShop</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -65,7 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="login-hint">💡 Identifiant: <strong>ayoub</strong> | Mot de passe: <strong>ayb2008</strong></p>
 
             <div style="text-align: center; margin-top: 1.5rem; color: #666;">
-                Pas encore de compte ? <a href="register.php" style="color: #667eea; text-decoration: none; font-weight: 600;">S'inscrire</a>
+                Pas encore de compte ? <a href="register.php"
+                    style="color: #4A5859; text-decoration: none; font-weight: 600;">S'inscrire</a>
             </div>
         </div>
     </div>
@@ -76,4 +79,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </footer>
 </body>
+
 </html>

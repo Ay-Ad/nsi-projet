@@ -104,6 +104,7 @@ $cartCount = array_sum(getCartItems());
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,13 +121,13 @@ $cartCount = array_sum(getCartItems());
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             margin-bottom: 2rem;
             text-align: center;
         }
 
         .settings-header h1 {
-            color: #667eea;
+            color: #4A5859;
             margin-bottom: 0.5rem;
         }
 
@@ -138,7 +139,7 @@ $cartCount = array_sum(getCartItems());
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             margin-bottom: 2rem;
         }
 
@@ -175,12 +176,12 @@ $cartCount = array_sum(getCartItems());
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4A5859;
         }
 
         .btn-primary {
             padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4A5859 0%, #32373B 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -257,7 +258,7 @@ $cartCount = array_sum(getCartItems());
             background: white;
             padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.2s;
         }
@@ -290,7 +291,7 @@ $cartCount = array_sum(getCartItems());
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -300,7 +301,7 @@ $cartCount = array_sum(getCartItems());
             border-radius: 15px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .modal-header {
@@ -327,6 +328,7 @@ $cartCount = array_sum(getCartItems());
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -375,10 +377,10 @@ $cartCount = array_sum(getCartItems());
                 <div class="icon">📦</div>
                 <h3>Commandes</h3>
                 <p><?php
-                    $stmt = $conn->prepare("SELECT COUNT(*) as count FROM orders WHERE user_id = ?");
-                    $stmt->execute([$_SESSION['user_id']]);
-                    $orderCount = $stmt->fetch(PDO::FETCH_ASSOC);
-                    echo $orderCount['count'];
+                $stmt = $conn->prepare("SELECT COUNT(*) as count FROM orders WHERE user_id = ?");
+                $stmt->execute([$_SESSION['user_id']]);
+                $orderCount = $stmt->fetch(PDO::FETCH_ASSOC);
+                echo $orderCount['count'];
                 ?> commandes</p>
             </div>
             <div class="quick-action-card">
@@ -396,7 +398,8 @@ $cartCount = array_sum(getCartItems());
 
                 <div class="form-group">
                     <label>Nom d'utilisateur</label>
-                    <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required minlength="3">
+                    <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>"
+                        required minlength="3">
                 </div>
 
                 <div class="form-group">
@@ -416,18 +419,21 @@ $cartCount = array_sum(getCartItems());
 
                 <div class="form-group">
                     <label>Mot de passe actuel</label>
-                    <input type="password" name="current_password" required placeholder="Entrez votre mot de passe actuel">
+                    <input type="password" name="current_password" required
+                        placeholder="Entrez votre mot de passe actuel">
                 </div>
 
                 <div class="form-group">
                     <label>Nouveau mot de passe</label>
-                    <input type="password" name="new_password" id="new_password" required minlength="6" placeholder="Minimum 6 caractères">
+                    <input type="password" name="new_password" id="new_password" required minlength="6"
+                        placeholder="Minimum 6 caractères">
                     <div id="passwordStrength" style="font-size: 0.85rem; margin-top: 0.3rem;"></div>
                 </div>
 
                 <div class="form-group">
                     <label>Confirmer le nouveau mot de passe</label>
-                    <input type="password" name="confirm_password" id="confirm_password" required placeholder="Retapez le nouveau mot de passe">
+                    <input type="password" name="confirm_password" id="confirm_password" required
+                        placeholder="Retapez le nouveau mot de passe">
                     <div id="passwordMatch" style="font-size: 0.85rem; margin-top: 0.3rem;"></div>
                 </div>
 
@@ -439,7 +445,8 @@ $cartCount = array_sum(getCartItems());
         <div class="settings-section">
             <div class="danger-zone">
                 <h3>⚠️ Zone de danger</h3>
-                <p><strong>Attention :</strong> La suppression de votre compte est définitive et irréversible. Toutes vos commandes et informations seront supprimées.</p>
+                <p><strong>Attention :</strong> La suppression de votre compte est définitive et irréversible. Toutes
+                    vos commandes et informations seront supprimées.</p>
                 <button type="button" class="btn-danger" onclick="openDeleteModal()">🗑️ Supprimer mon compte</button>
             </div>
         </div>
@@ -462,7 +469,8 @@ $cartCount = array_sum(getCartItems());
                     <input type="password" name="password_confirm" required placeholder="Entrez votre mot de passe">
                 </div>
                 <div style="display: flex; gap: 1rem;">
-                    <button type="button" class="btn-primary" onclick="closeDeleteModal()" style="flex: 1;">Annuler</button>
+                    <button type="button" class="btn-primary" onclick="closeDeleteModal()"
+                        style="flex: 1;">Annuler</button>
                     <button type="submit" class="btn-danger" style="flex: 1;">Supprimer définitivement</button>
                 </div>
             </form>
@@ -483,7 +491,7 @@ $cartCount = array_sum(getCartItems());
         const passwordMatch = document.getElementById('passwordMatch');
         const changePasswordBtn = document.getElementById('changePasswordBtn');
 
-        newPassword.addEventListener('input', function() {
+        newPassword.addEventListener('input', function () {
             const value = this.value;
             let strength = 0;
 
@@ -538,7 +546,7 @@ $cartCount = array_sum(getCartItems());
             document.getElementById('deleteModal').style.display = 'none';
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('deleteModal');
             if (event.target == modal) {
                 closeDeleteModal();
@@ -546,4 +554,5 @@ $cartCount = array_sum(getCartItems());
         }
     </script>
 </body>
+
 </html>

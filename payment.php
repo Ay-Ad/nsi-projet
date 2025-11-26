@@ -32,6 +32,7 @@ $cartCount = array_sum($cart);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,11 +50,11 @@ $cartCount = array_sum($cart);
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .payment-form h2 {
-            color: #667eea;
+            color: #4A5859;
             margin-bottom: 1.5rem;
             font-size: 2rem;
         }
@@ -107,7 +108,7 @@ $cartCount = array_sum($cart);
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4A5859;
         }
 
         .form-group textarea {
@@ -133,7 +134,7 @@ $cartCount = array_sum($cart);
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             height: fit-content;
             position: sticky;
             top: 100px;
@@ -164,7 +165,7 @@ $cartCount = array_sum($cart);
         .summary-total {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #667eea;
+            color: #4A5859;
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 2px solid #e2e8f0;
@@ -209,6 +210,7 @@ $cartCount = array_sum($cart);
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -297,7 +299,8 @@ $cartCount = array_sum($cart);
 
                     <div class="form-group">
                         <label>Numéro de carte <span class="required">*</span></label>
-                        <input type="text" name="carte_numero" required placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber">
+                        <input type="text" name="carte_numero" required placeholder="1234 5678 9012 3456" maxlength="19"
+                            id="cardNumber">
                         <div class="card-icons">
                             <span class="card-icon">VISA</span>
                             <span class="card-icon">MC</span>
@@ -313,7 +316,8 @@ $cartCount = array_sum($cart);
                     <div class="form-row">
                         <div class="form-group">
                             <label>Date d'expiration <span class="required">*</span></label>
-                            <input type="text" name="carte_expiration" required placeholder="MM/AA" maxlength="5" id="cardExpiry">
+                            <input type="text" name="carte_expiration" required placeholder="MM/AA" maxlength="5"
+                                id="cardExpiry">
                         </div>
                         <div class="form-group">
                             <label>CVV <span class="required">*</span></label>
@@ -333,13 +337,13 @@ $cartCount = array_sum($cart);
                 <h3>Récapitulatif</h3>
 
                 <?php foreach ($cartItems as $item): ?>
-                <div class="summary-item">
-                    <div>
-                        <div><?php echo htmlspecialchars($item['name']); ?></div>
-                        <div class="summary-product">Quantité: <?php echo $item['quantity']; ?></div>
+                    <div class="summary-item">
+                        <div>
+                            <div><?php echo htmlspecialchars($item['name']); ?></div>
+                            <div class="summary-product">Quantité: <?php echo $item['quantity']; ?></div>
+                        </div>
+                        <div><strong><?php echo number_format($item['subtotal'], 2); ?> €</strong></div>
                     </div>
-                    <div><strong><?php echo number_format($item['subtotal'], 2); ?> €</strong></div>
-                </div>
                 <?php endforeach; ?>
 
                 <div class="summary-item">
@@ -370,14 +374,14 @@ $cartCount = array_sum($cart);
 
     <script>
         // Formatage automatique du numéro de carte
-        document.getElementById('cardNumber').addEventListener('input', function(e) {
+        document.getElementById('cardNumber').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\s/g, '');
             let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
             e.target.value = formattedValue;
         });
 
         // Formatage de la date d'expiration
-        document.getElementById('cardExpiry').addEventListener('input', function(e) {
+        document.getElementById('cardExpiry').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '');
             if (value.length >= 2) {
                 value = value.slice(0, 2) + '/' + value.slice(2, 4);
@@ -386,12 +390,12 @@ $cartCount = array_sum($cart);
         });
 
         // Validation CVV (chiffres uniquement)
-        document.getElementById('cardCVV').addEventListener('input', function(e) {
+        document.getElementById('cardCVV').addEventListener('input', function (e) {
             e.target.value = e.target.value.replace(/\D/g, '');
         });
 
         // Validation du formulaire
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        document.getElementById('paymentForm').addEventListener('submit', function (e) {
             const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
             if (cardNumber.length < 13 || cardNumber.length > 19) {
                 e.preventDefault();
@@ -401,4 +405,5 @@ $cartCount = array_sum($cart);
         });
     </script>
 </body>
+
 </html>

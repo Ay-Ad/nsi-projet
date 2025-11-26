@@ -37,6 +37,7 @@ $cartCount = array_sum(getCartItems());
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +50,7 @@ $cartCount = array_sum(getCartItems());
             background: white;
             padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .success-icon {
@@ -79,7 +80,7 @@ $cartCount = array_sum(getCartItems());
         }
 
         .info-section h3 {
-            color: #667eea;
+            color: #4A5859;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -119,7 +120,7 @@ $cartCount = array_sum(getCartItems());
             justify-content: space-between;
             font-size: 1.5rem;
             font-weight: bold;
-            color: #667eea;
+            color: #4A5859;
             padding-top: 1rem;
             margin-top: 1rem;
             border-top: 2px solid #e2e8f0;
@@ -146,14 +147,14 @@ $cartCount = array_sum(getCartItems());
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4A5859 0%, #32373B 100%);
             color: white;
         }
 
         .btn-secondary {
             background: #f7fafc;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #4A5859;
+            border: 2px solid #4A5859;
         }
 
         .delivery-estimate {
@@ -167,6 +168,7 @@ $cartCount = array_sum(getCartItems());
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -190,7 +192,8 @@ $cartCount = array_sum(getCartItems());
             <p class="order-number">Numéro de commande : #<?php echo $order['id']; ?></p>
 
             <p style="text-align: center; color: #666; margin-bottom: 2rem;">
-                Merci pour votre commande ! Un email de confirmation a été envoyé à <strong><?php echo htmlspecialchars($shipping['email'] ?? ''); ?></strong>
+                Merci pour votre commande ! Un email de confirmation a été envoyé à
+                <strong><?php echo htmlspecialchars($shipping['email'] ?? ''); ?></strong>
             </p>
 
             <!-- Informations de livraison -->
@@ -198,7 +201,8 @@ $cartCount = array_sum(getCartItems());
                 <h3>📍 Adresse de livraison</h3>
                 <div class="info-grid">
                     <div class="info-label">Destinataire:</div>
-                    <div class="info-value"><?php echo htmlspecialchars($shipping['prenom'] . ' ' . $shipping['nom']); ?></div>
+                    <div class="info-value">
+                        <?php echo htmlspecialchars($shipping['prenom'] . ' ' . $shipping['nom']); ?></div>
 
                     <div class="info-label">Adresse:</div>
                     <div class="info-value">
@@ -220,13 +224,14 @@ $cartCount = array_sum(getCartItems());
                 <h3>📦 Détails de la commande</h3>
                 <div class="items-list">
                     <?php foreach ($items as $item): ?>
-                    <div class="item-row">
-                        <div>
-                            <strong><?php echo htmlspecialchars($item['name']); ?></strong><br>
-                            <span style="color: #666;">Quantité: <?php echo $item['quantity']; ?></span>
+                        <div class="item-row">
+                            <div>
+                                <strong><?php echo htmlspecialchars($item['name']); ?></strong><br>
+                                <span style="color: #666;">Quantité: <?php echo $item['quantity']; ?></span>
+                            </div>
+                            <div><strong><?php echo number_format($item['price'] * $item['quantity'], 2); ?> €</strong>
+                            </div>
                         </div>
-                        <div><strong><?php echo number_format($item['price'] * $item['quantity'], 2); ?> €</strong></div>
-                    </div>
                     <?php endforeach; ?>
 
                     <div class="total-row">
@@ -241,7 +246,8 @@ $cartCount = array_sum(getCartItems());
                 <h3>💳 Paiement</h3>
                 <div class="info-grid">
                     <div class="info-label">Mode:</div>
-                    <div class="info-value">Carte bancaire (•••• <?php echo htmlspecialchars($shipping['carte_derniers_chiffres'] ?? ''); ?>)</div>
+                    <div class="info-value">Carte bancaire (••••
+                        <?php echo htmlspecialchars($shipping['carte_derniers_chiffres'] ?? ''); ?>)</div>
 
                     <div class="info-label">Statut:</div>
                     <div class="info-value" style="color: #48bb78; font-weight: bold;">✓ Paiement accepté</div>
@@ -265,4 +271,5 @@ $cartCount = array_sum(getCartItems());
         </div>
     </footer>
 </body>
+
 </html>

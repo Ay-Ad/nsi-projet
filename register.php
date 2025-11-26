@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .register-box h2 {
             text-align: center;
-            color: #667eea;
+            color: #4A5859;
             margin-bottom: 2rem;
             font-size: 2rem;
         }
@@ -109,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #4A5859;
         }
 
         .password-strength {
@@ -133,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-submit {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4A5859 0%, #32373B 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -178,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-link a {
-            color: #667eea;
+            color: #4A5859;
             text-decoration: none;
             font-weight: 600;
         }
@@ -205,6 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -237,30 +239,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="form-group">
                     <label for="username">Nom d'utilisateur <span style="color: #f56565;">*</span></label>
                     <input type="text" id="username" name="username" required
-                           placeholder="Choisissez un nom d'utilisateur"
-                           value="<?php echo htmlspecialchars($username ?? ''); ?>"
-                           minlength="3">
+                        placeholder="Choisissez un nom d'utilisateur"
+                        value="<?php echo htmlspecialchars($username ?? ''); ?>" minlength="3">
                     <small style="color: #666;">Au moins 3 caractères</small>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email <span style="color: #f56565;">*</span></label>
-                    <input type="email" id="email" name="email" required
-                           placeholder="votre.email@exemple.com"
-                           value="<?php echo htmlspecialchars($email ?? ''); ?>">
+                    <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com"
+                        value="<?php echo htmlspecialchars($email ?? ''); ?>">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Mot de passe <span style="color: #f56565;">*</span></label>
-                    <input type="password" id="password" name="password" required
-                           placeholder="Minimum 6 caractères" minlength="6">
+                    <input type="password" id="password" name="password" required placeholder="Minimum 6 caractères"
+                        minlength="6">
                     <div class="password-strength" id="strengthIndicator"></div>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirm_password">Confirmer le mot de passe <span style="color: #f56565;">*</span></label>
+                    <label for="confirm_password">Confirmer le mot de passe <span
+                            style="color: #f56565;">*</span></label>
                     <input type="password" id="confirm_password" name="confirm_password" required
-                           placeholder="Retapez votre mot de passe">
+                        placeholder="Retapez votre mot de passe">
                     <div id="passwordMatch" style="font-size: 0.85rem; margin-top: 0.3rem;"></div>
                 </div>
 
@@ -296,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         const submitBtn = document.getElementById('submitBtn');
 
         // Vérifier la force du mot de passe
-        password.addEventListener('input', function() {
+        password.addEventListener('input', function () {
             const value = this.value;
             let strength = 0;
 
@@ -344,7 +345,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         confirmPassword.addEventListener('input', checkPasswordMatch);
 
         // Validation du formulaire
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
             if (password.value !== confirmPassword.value) {
                 e.preventDefault();
                 alert('Les mots de passe ne correspondent pas !');
@@ -359,4 +360,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         });
     </script>
 </body>
+
 </html>
