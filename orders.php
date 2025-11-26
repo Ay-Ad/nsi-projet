@@ -14,12 +14,14 @@ $cartCount = array_sum(getCartItems());
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Commandes - TechShop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -60,30 +62,31 @@ $cartCount = array_sum(getCartItems());
                         ");
                         $stmt->execute([$order['id']]);
                         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    ?>
-                    <div class="order-card">
-                        <div class="order-header">
-                            <div>
-                                <strong>Commande #<?php echo $order['id']; ?></strong>
-                                <span class="order-date"><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></span>
+                        ?>
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div>
+                                    <strong>Commande #<?php echo $order['id']; ?></strong>
+                                    <span
+                                        class="order-date"><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></span>
+                                </div>
+                                <div>
+                                    <span class="order-status status-<?php echo $order['status']; ?>">
+                                        <?php echo ucfirst($order['status']); ?>
+                                    </span>
+                                    <strong class="order-total"><?php echo number_format($order['total'], 2); ?> €</strong>
+                                </div>
                             </div>
-                            <div>
-                                <span class="order-status status-<?php echo $order['status']; ?>">
-                                    <?php echo ucfirst($order['status']); ?>
-                                </span>
-                                <strong class="order-total"><?php echo number_format($order['total'], 2); ?> €</strong>
+                            <div class="order-items">
+                                <?php foreach ($items as $item): ?>
+                                    <div class="order-item">
+                                        <span><?php echo htmlspecialchars($item['name']); ?></span>
+                                        <span>x<?php echo $item['quantity']; ?></span>
+                                        <span><?php echo number_format($item['price'] * $item['quantity'], 2); ?> €</span>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="order-items">
-                            <?php foreach ($items as $item): ?>
-                            <div class="order-item">
-                                <span><?php echo htmlspecialchars($item['name']); ?></span>
-                                <span>x<?php echo $item['quantity']; ?></span>
-                                <span><?php echo number_format($item['price'] * $item['quantity'], 2); ?> €</span>
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
@@ -96,4 +99,5 @@ $cartCount = array_sum(getCartItems());
         </div>
     </footer>
 </body>
+
 </html>

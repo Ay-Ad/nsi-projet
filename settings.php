@@ -109,7 +109,7 @@ $cartCount = array_sum(getCartItems());
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paramètres - TechShop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <style>
         .settings-container {
             max-width: 900px;

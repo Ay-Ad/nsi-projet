@@ -42,7 +42,7 @@ $cartCount = array_sum(getCartItems());
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation - TechShop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <style>
         .confirmation-container {
             max-width: 800px;
@@ -202,7 +202,8 @@ $cartCount = array_sum(getCartItems());
                 <div class="info-grid">
                     <div class="info-label">Destinataire:</div>
                     <div class="info-value">
-                        <?php echo htmlspecialchars($shipping['prenom'] . ' ' . $shipping['nom']); ?></div>
+                        <?php echo htmlspecialchars($shipping['prenom'] . ' ' . $shipping['nom']); ?>
+                    </div>
 
                     <div class="info-label">Adresse:</div>
                     <div class="info-value">
@@ -247,7 +248,8 @@ $cartCount = array_sum(getCartItems());
                 <div class="info-grid">
                     <div class="info-label">Mode:</div>
                     <div class="info-value">Carte bancaire (••••
-                        <?php echo htmlspecialchars($shipping['carte_derniers_chiffres'] ?? ''); ?>)</div>
+                        <?php echo htmlspecialchars($shipping['carte_derniers_chiffres'] ?? ''); ?>)
+                    </div>
 
                     <div class="info-label">Statut:</div>
                     <div class="info-value" style="color: #48bb78; font-weight: bold;">✓ Paiement accepté</div>

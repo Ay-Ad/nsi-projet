@@ -9,12 +9,14 @@ $cartCount = array_sum(getCartItems());
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechShop - Votre boutique high-tech</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -51,24 +53,24 @@ $cartCount = array_sum(getCartItems());
             <h2 class="section-title">Nos Produits</h2>
             <div class="products-grid">
                 <?php foreach ($products as $product): ?>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-placeholder">📦</div>
-                    </div>
-                    <div class="product-info">
-                        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-                        <p class="product-category"><?php echo htmlspecialchars($product['category']); ?></p>
-                        <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
-                        <div class="product-footer">
-                            <span class="price"><?php echo number_format($product['price'], 2); ?> €</span>
-                            <span class="stock">Stock: <?php echo $product['stock']; ?></span>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="image-placeholder">📦</div>
                         </div>
-                        <form method="POST" action="add_to_cart.php" class="add-to-cart-form">
-                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                            <button type="submit" class="btn-add-cart">Ajouter au panier</button>
-                        </form>
+                        <div class="product-info">
+                            <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                            <p class="product-category"><?php echo htmlspecialchars($product['category']); ?></p>
+                            <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
+                            <div class="product-footer">
+                                <span class="price"><?php echo number_format($product['price'], 2); ?> €</span>
+                                <span class="stock">Stock: <?php echo $product['stock']; ?></span>
+                            </div>
+                            <form method="POST" action="add_to_cart.php" class="add-to-cart-form">
+                                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                <button type="submit" class="btn-add-cart">Ajouter au panier</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -83,4 +85,5 @@ $cartCount = array_sum(getCartItems());
 
     <script src="script.js"></script>
 </body>
+
 </html>

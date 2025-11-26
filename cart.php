@@ -22,12 +22,14 @@ $cartCount = array_sum($cart);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier - TechShop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
@@ -60,30 +62,30 @@ $cartCount = array_sum($cart);
             <?php else: ?>
                 <div class="cart-items">
                     <?php foreach ($cartItems as $item): ?>
-                    <div class="cart-item">
-                        <div class="item-image">📦</div>
-                        <div class="item-details">
-                            <h3><?php echo htmlspecialchars($item['name']); ?></h3>
-                            <p class="item-price"><?php echo number_format($item['price'], 2); ?> €</p>
+                        <div class="cart-item">
+                            <div class="item-image">📦</div>
+                            <div class="item-details">
+                                <h3><?php echo htmlspecialchars($item['name']); ?></h3>
+                                <p class="item-price"><?php echo number_format($item['price'], 2); ?> €</p>
+                            </div>
+                            <div class="item-quantity">
+                                <form method="POST" action="update_cart.php" class="quantity-form">
+                                    <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
+                                    <button type="submit" name="action" value="decrease" class="qty-btn">-</button>
+                                    <span class="qty-display"><?php echo $item['quantity']; ?></span>
+                                    <button type="submit" name="action" value="increase" class="qty-btn">+</button>
+                                </form>
+                            </div>
+                            <div class="item-subtotal">
+                                <strong><?php echo number_format($item['subtotal'], 2); ?> €</strong>
+                            </div>
+                            <div class="item-remove">
+                                <form method="POST" action="remove_from_cart.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
+                                    <button type="submit" class="btn-remove">🗑️</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="item-quantity">
-                            <form method="POST" action="update_cart.php" class="quantity-form">
-                                <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                <button type="submit" name="action" value="decrease" class="qty-btn">-</button>
-                                <span class="qty-display"><?php echo $item['quantity']; ?></span>
-                                <button type="submit" name="action" value="increase" class="qty-btn">+</button>
-                            </form>
-                        </div>
-                        <div class="item-subtotal">
-                            <strong><?php echo number_format($item['subtotal'], 2); ?> €</strong>
-                        </div>
-                        <div class="item-remove">
-                            <form method="POST" action="remove_from_cart.php">
-                                <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
-                                <button type="submit" class="btn-remove">🗑️</button>
-                            </form>
-                        </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
 
@@ -112,4 +114,5 @@ $cartCount = array_sum($cart);
         </div>
     </footer>
 </body>
+
 </html>
