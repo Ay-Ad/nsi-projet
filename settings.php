@@ -102,6 +102,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 
 $cartCount = array_sum(getCartItems());
 ?>
+
+
+<!-- HTML PART -->
+
+
 <!DOCTYPE html>
 <html lang="fr">
 

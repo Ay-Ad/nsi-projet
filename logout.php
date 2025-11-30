@@ -1,7 +1,5 @@
 <?php
-// ========================================
-// FICHIER 4: logout.php
-// ========================================
+// fichier de deconnexion
 session_start();
 session_destroy();
 header('Location: index.php');
