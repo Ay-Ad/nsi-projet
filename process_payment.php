@@ -57,8 +57,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([
-                $orderId, $prenom, $nom, $email, $telephone,
-                $adresse, $code_postal, $ville, $pays, $complement_adresse, $carte_numero
+                $orderId,
+                $prenom,
+                $nom,
+                $email,
+                $telephone,
+                $adresse,
+                $code_postal,
+                $ville,
+                $pays,
+                $complement_adresse,
+                $carte_numero
             ]);
 
             $conn->commit();

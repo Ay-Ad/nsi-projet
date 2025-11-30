@@ -1,6 +1,4 @@
 <?php
-// ========== checkout.php ==========
-// Fichier: checkout.php
 require_once 'config.php';
 
 if (!isLoggedIn()) {

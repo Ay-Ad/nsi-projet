@@ -18,7 +18,7 @@ $cartCount = array_sum(getCartItems());
 </head>
 
 <body>
-    <!-- Navigation -->
+<!-- nav -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">

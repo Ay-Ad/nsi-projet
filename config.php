@@ -11,17 +11,19 @@ define('DB_NAME', 'shop_db');
 try {
     $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     die("Erreur de connexion: " . $e->getMessage());
 }
 
 // Fonction pour vérifier si l'utilisateur est connecté
-function isLoggedIn() {
+function isLoggedIn()
+{
     return isset($_SESSION['user_id']);
 }
 
 // Fonction pour obtenir les produits du panier
-function getCartItems() {
+function getCartItems()
+{
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
@@ -29,7 +31,8 @@ function getCartItems() {
 }
 
 // Fonction pour calculer le total du panier
-function getCartTotal($conn) {
+function getCartTotal($conn)
+{
     $cart = getCartItems();
     $total = 0;
 

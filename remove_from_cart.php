@@ -1,7 +1,4 @@
 <?php
-// ========================================
-// FICHIER 3: remove_from_cart.php
-// ========================================
 require_once 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,5 +12,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 header('Location: cart.php');
 exit();
 ?>
-
-<?php
