@@ -9,6 +9,10 @@ E-commerce Website
 - Ayoub
 - Mohand
 
+## Presentation Canva
+- https://bit.ly/48vTSYH
+ Le reste des presentation est present dans le dossier presentation
+
 
 ## Deployment
 
