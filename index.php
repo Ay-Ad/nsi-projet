@@ -55,7 +55,12 @@ $cartCount = array_sum(getCartItems());
                 <?php foreach ($products as $product): ?>
                     <div class="product-card">
                         <div class="product-image">
-                            <div class="image-placeholder">📦</div>
+                            <?php if ($product['image'] && file_exists('images/' . $product['image'])): ?>
+                                <img src="images/<?php echo htmlspecialchars($product['image']); ?>"
+                                    alt="<?php echo htmlspecialchars($product['name']); ?>">
+                            <?php else: ?>
+                                <div class="image-placeholder">📦</div>
+                            <?php endif; ?>
                         </div>
                         <div class="product-info">
                             <h3><?php echo htmlspecialchars($product['name']); ?></h3>
