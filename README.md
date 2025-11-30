@@ -14,10 +14,10 @@ E-commerce Website
 
 Pour utiliser le Site 
 
-Ajouter le projet a un dossier comme www ( wamp server ) ou htdocs (xamp)
-lancer localhost/projet-nsi
+Ajouter le projet a un dossier comme www ( wamp server ) ou htdocs (xampp)
+lancer http://localhost/nsi-projet
 vous avez acces au projet 
-pour acceder a la base de donnée ( aller dans phpmyadmin cree un nouvel base, ajouter le code sql)
+pour acceder a la base de donnée ( aller dans phpmyadmin cree un nouvel base, ajouter le code sql) -> http://localhost/phpmyadmin/
 lancer le site ( normalement fonctionel)
 
 
