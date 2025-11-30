@@ -31,7 +31,7 @@ lancer le site ( normalement fonctionel)
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Ay-Ad/nsi-projet.git
 ```
 
 Go to the project directory
