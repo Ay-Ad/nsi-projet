@@ -84,7 +84,7 @@ $cartCount = array_sum(getCartItems());
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 TechShop. Tous droits réservés.</p>
+            <p>&copy; 2025 TechShop - Ayoub & Mohand</p>
         </div>
     </footer>
 
