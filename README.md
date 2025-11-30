@@ -17,7 +17,7 @@ Pour utiliser le Site
 Ajouter le projet a un dossier comme www ( wamp server ) ou htdocs (xampp)
 lancer http://localhost/nsi-projet
 vous avez acces au projet 
-pour acceder a la base de donnée ( aller dans phpmyadmin cree un nouvel base, ajouter le code sql) -> http://localhost/phpmyadmin/
+pour acceder a la base de donnée ( aller dans phpmyadmin cree une nouvelle base, ajouter le code sql) -> http://localhost/phpmyadmin/
 lancer le site ( normalement fonctionel)
 
 
